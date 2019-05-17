@@ -1,12 +1,15 @@
+
+// --DOES NOT WORK--
+
 class Carousel {
     constructor(element){
         this.element = element;
-        this.lButton = document.querySelector(".left-button");
-        this.rButton = document.querySelector(".right-button");
-        this.images = document.querySelectorAll(".carousel img");
+        this.lButton = element.querySelector(".left-button");
+        this.rButton = element.querySelector(".right-button");
+        this.images = element.querySelectorAll(".carousel img");
         this.index = 0;
 
-        this.image = document.querySelectorAll(".carousel img"[this.index])
+        this.image = element.querySelectorAll("img"[this.index])
         this.image.style.display = "block";
 
 
@@ -22,8 +25,8 @@ class Carousel {
         allImages.forEach(element => {
             element.style.display = "none"
         })
-
-        this.image[this.index - 1].style.display = "block"
+        
+        allImages[this.index - 1].style.display = "block"
     }
     goReft(){
 
@@ -31,7 +34,7 @@ class Carousel {
             element.style.display = "none"
         })
 
-        this.image[this.index + 1].style.display = "block"
+        allImages[this.index + 1].style.display = "block"
     }
 
 }

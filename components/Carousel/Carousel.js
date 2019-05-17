@@ -5,18 +5,33 @@ class Carousel {
         this.rButton = document.querySelector(".right-button");
         this.images = document.querySelectorAll(".carousel img");
         this.index = 0;
-        this.image = this.images[this.index]
-        this.image.style.display = "block"
 
-        this.lButton.addEventListener("mouseover", () => this.goLeft())
-        this.lButton.addEventListener("mouseover", () => this.goReft())
+        this.image = document.querySelectorAll(".carousel img"[this.index])
+        this.image.style.display = "block";
+
+
+        console.log(this.image)
+
+        this.lButton.addEventListener("click", () => this.goLeft())
+        this.lButton.addEventListener("click", () => this.goReft())
 
     }
     goLeft(){
+        const allImages = document.querySelectorAll(".carousel img")
 
+        allImages.forEach(element => {
+            element.style.display = "none"
+        })
+
+        this.image[this.index - 1].style.display = "block"
     }
     goReft(){
-        
+
+        allImages.forEach(element => {
+            element.style.display = "none"
+        })
+
+        this.image[this.index + 1].style.display = "block"
     }
 
 }
